@@ -60,12 +60,13 @@ require([
 
     var svg = d3.select("svg"),
         margin = 20,
-        diameter = +svg.attr("width"),
+        diameter = +svg.attr("height"),
         g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
     
     var color = d3.scaleLinear()
         .domain([-1, 5])
-        .range(["hsl(152,80%,80%)", "hsl(228,30%,40%)"])
+        //.range(["hsl(152,80%,80%)", "hsl(228,30%,40%)"])
+        .range(["#4EB4B0", "#3D445E"])
         .interpolate(d3.interpolateHcl);
     
     var pack = d3.pack()
