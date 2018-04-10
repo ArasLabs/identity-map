@@ -113,6 +113,9 @@ require([
         var focus0 = focus; focus = d;
         
         console.log(d);
+        
+        var currLabel = document.getElementById("curr-label");
+        currLabel.innerHTML = d.data.name;
     
         var transition = d3.transition()
             .duration(d3.event.altKey ? 7500 : 750)
