@@ -1,0 +1,169 @@
+﻿<AML>
+ <Item type="qry_QueryDefinition" id="B0BDDF2601D84F9BB183D8BD401B6012" action="add">
+  <name>Identity Map</name>
+  <Relationships>
+   <Item type="qry_QueryItem" id="67BCFC9FD811411AB6B7A1FAF116F13D" action="add">
+    <alias>Identity</alias>
+    <filter_xml><![CDATA[<condition>
+	<and>
+		<eq>
+			<property name="is_alias" />
+			<constant>0</constant>
+		</eq>
+		<null>
+			<property name="classification" />
+		</null>
+	</and>
+</condition>]]></filter_xml>
+    <item_type keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</item_type>
+    <ref_id>C21FE458ABCF4678AC913D27AA14E4A5</ref_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Identity Map" type="qry_QueryDefinition">B0BDDF2601D84F9BB183D8BD401B6012</source_id>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="2946F6337A134C1D8969104AE2C218A1" action="add">
+      <property_name>name</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="67BCFC9FD811411AB6B7A1FAF116F13D" type="qry_QueryItem">67BCFC9FD811411AB6B7A1FAF116F13D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="09618251241D400C9C181464726BD41A" action="add">
+      <property_name>is_alias</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="67BCFC9FD811411AB6B7A1FAF116F13D" type="qry_QueryItem">67BCFC9FD811411AB6B7A1FAF116F13D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3F682ECBB0084873A96553A2311FBF4E" action="add">
+      <property_name>id</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="67BCFC9FD811411AB6B7A1FAF116F13D" type="qry_QueryItem">67BCFC9FD811411AB6B7A1FAF116F13D</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="344DCFDE37C148E8865FCD7C091F73F8" action="add">
+    <alias>Member</alias>
+    <filter_xml />
+    <item_type keyed_name="Member" type="ItemType" name="Member">7348E620D27E40D1868C54247B5DE8D1</item_type>
+    <ref_id>E0FA15F126A24FC8BB58536728B7C763</ref_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Identity Map" type="qry_QueryDefinition">B0BDDF2601D84F9BB183D8BD401B6012</source_id>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="9C960F9ACB1F494AADE5D8F87AB7C725" action="add">
+      <property_name>id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="344DCFDE37C148E8865FCD7C091F73F8" type="qry_QueryItem">344DCFDE37C148E8865FCD7C091F73F8</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="B51FAACC313E4D8FB26403D95A3DF6C4" action="add">
+      <property_name>related_id</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="344DCFDE37C148E8865FCD7C091F73F8" type="qry_QueryItem">344DCFDE37C148E8865FCD7C091F73F8</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="46BB322DD20244DEA11C1F2F657E9A58" action="add">
+    <alias>Identity_1</alias>
+    <filter_xml><![CDATA[<condition>
+	<ne>
+		<property name="name" />
+		<constant>Super User</constant>
+	</ne>
+</condition>]]></filter_xml>
+    <item_type keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</item_type>
+    <ref_id>AC3C8350D6C44F1CBCF49C89A05AD11D</ref_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Identity Map" type="qry_QueryDefinition">B0BDDF2601D84F9BB183D8BD401B6012</source_id>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="3865865318024842B4251F1182A2AAE6" action="add">
+      <property_name>name</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="46BB322DD20244DEA11C1F2F657E9A58" type="qry_QueryItem">46BB322DD20244DEA11C1F2F657E9A58</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="9CFDD1EACCAF415A8E9E60160550D29C" action="add">
+      <property_name>is_alias</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="46BB322DD20244DEA11C1F2F657E9A58" type="qry_QueryItem">46BB322DD20244DEA11C1F2F657E9A58</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F210202D75414330896E14F48406D998" action="add">
+      <property_name>id</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="46BB322DD20244DEA11C1F2F657E9A58" type="qry_QueryItem">46BB322DD20244DEA11C1F2F657E9A58</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="CA57D088F6694CCE8BB00CE7EF2CF80F" action="add">
+    <alias>Member_1</alias>
+    <filter_xml />
+    <item_type keyed_name="Member" type="ItemType" name="Member">7348E620D27E40D1868C54247B5DE8D1</item_type>
+    <ref_id>568D7BEB035442AABD840137DBB18382</ref_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Identity Map" type="qry_QueryDefinition">B0BDDF2601D84F9BB183D8BD401B6012</source_id>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="71B3E061160D44A6B6EEB05E49768B71" action="add">
+      <property_name>id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CA57D088F6694CCE8BB00CE7EF2CF80F" type="qry_QueryItem">CA57D088F6694CCE8BB00CE7EF2CF80F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="CBF8C0B1C58F4D00AB9C6F9CFF4ED8F2" action="add">
+      <property_name>related_id</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="CA57D088F6694CCE8BB00CE7EF2CF80F" type="qry_QueryItem">CA57D088F6694CCE8BB00CE7EF2CF80F</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryReference" id="A1FE7A15098B4068B7D78502FBC23E7F" action="add">
+    <child_ref_id>C21FE458ABCF4678AC913D27AA14E4A5</child_ref_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Identity Map" type="qry_QueryDefinition">B0BDDF2601D84F9BB183D8BD401B6012</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="6BF5D4CE9CDF4EA2AF4711D2F58DDA1F" action="add">
+    <child_ref_id>E0FA15F126A24FC8BB58536728B7C763</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property name="id" query_items_xpath="parent::Item" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>C21FE458ABCF4678AC913D27AA14E4A5</parent_ref_id>
+    <ref_id>17237BAE2B8A432092F759584EBB1AF3</ref_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Identity Map" type="qry_QueryDefinition">B0BDDF2601D84F9BB183D8BD401B6012</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="F1D07216728C4E77AAE0F5756E17ADEF" action="add">
+    <child_ref_id>AC3C8350D6C44F1CBCF49C89A05AD11D</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property name="related_id" query_items_xpath="parent::Item" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>E0FA15F126A24FC8BB58536728B7C763</parent_ref_id>
+    <ref_id>13B78EA89A3B486ABF04A205594216A3</ref_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Identity Map" type="qry_QueryDefinition">B0BDDF2601D84F9BB183D8BD401B6012</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="DE5A759E12BC427FB18C75E13A237559" action="add">
+    <child_ref_id>568D7BEB035442AABD840137DBB18382</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property name="id" query_items_xpath="parent::Item" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>AC3C8350D6C44F1CBCF49C89A05AD11D</parent_ref_id>
+    <ref_id>5B4DA23CE7F0464FA0E12A8280EBF98D</ref_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Identity Map" type="qry_QueryDefinition">B0BDDF2601D84F9BB183D8BD401B6012</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="47AB6F43BBD54B2788C84694DC6419A7" action="add">
+    <child_ref_id>AC3C8350D6C44F1CBCF49C89A05AD11D</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="related_id" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>568D7BEB035442AABD840137DBB18382</parent_ref_id>
+    <ref_id>D645F45B65AB47C8823BCE6E2240F3E2</ref_id>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Identity Map" type="qry_QueryDefinition">B0BDDF2601D84F9BB183D8BD401B6012</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>
