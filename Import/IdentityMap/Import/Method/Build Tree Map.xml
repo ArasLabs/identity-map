@@ -28,9 +28,6 @@ queryDef.setAction("qry_ExecuteQueryDefinition");
 queryDef.setAttribute("levels","0");
 var res = queryDef.apply();
 
-// return query results for test
-//alert(res.ToString());
-
 var json_data = {
     name: "All",
     id: "top",
@@ -52,9 +49,7 @@ for (var i=0; i < res.getItemCount(); i++)
     json_data.children.push(thisItem);
 }
 
-var output = getFieldByName("output");
-output.innerHTML = JSON.stringify(json_data);
-//return alert(JSON.stringify(json_data));
+// display diagram
 
 require([
     "../javascript/d3/d3.js"
