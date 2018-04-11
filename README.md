@@ -75,6 +75,8 @@ For more information on contributing to this project, another Aras Labs project,
 
 Created by Eli Donahue for Aras Labs. @EliJDonahue
 
+Bubble map rendering is based on [Mike Bostock's sample](https://bl.ocks.org/mbostock/7607535).
+
 ## License
 
 Aras Labs projects are published to Github under the MIT license. See the [LICENSE file](./LICENSE.md) for license rights and limitations.
