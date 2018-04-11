@@ -2,6 +2,44 @@
 
 This project demonstrates how to execute a Query Definition programmatically and visualize the output with D3. A recursive Query Definition retrieves the identity membership data and a form event renders a bubble graph.
 
+## About Query Definitions
+
+### What is a Query Definition?
+A Query Definition is a reusable query structure that is defined using the Query Builder GUI. Introduced in Aras 11 SP10, Query Definitions are used for populating certain Aras views, like Tree Grid View. Query definitions can be used to query structures below the context item, structures above the context item, and recursive structures. This project includes a demonstration of a recursive Query Definition (retireves identities that are members of identities).
+
+### What does Query Definition output look like?
+When a Query Definition is executed, the results are returned in an XML format that looks a bit like your typical AML data structure, but it has some important differences to consider:
+
+* The Item tag uses an "alias" attribute instead of "type".
+* The "alias" attribute may or may not match an ItemType name. The alias can be set explicitly in the Query Builder GUI.
+* The Item tag does not include the typical "id", "typeId", or "keyed_name" attributes.
+* Item properties contain the id of the referenced item. 
+* Related items appear in the "Relationships" tag on the relationship item - not in the "related_item" tag.
+
+### How can I test the XML result of my Query Definition?
+The Query Builder includes an action called "Execute Query". This action provides an options dialog where the user can enter a max result, conditions, and parameters:
+
+![Test Query](Screenshots/test-query.png)
+
+When the user clicks the "Execute" button, the Query Definition is executed using the options provided by the user and a result dialog provides the XML result of the query.
+
+### How can I see the AML request that is sent to the server?
+You can use server debug logs to see the AML request that is created by the Execute Query action. Here are the basic steps for collecting the logs:
+
+1. In the Query Builder view, click **Actions > Execute Query**.
+2. Enter your options, but don't click **Execute** just yet.
+3. Open up your `InnovatorServerConfig.xml` file in a file editor.
+4. Set the `debug_log_flag` operating parameter value to "true".
+5. Save the `InnovatorServerConfig.xml` file.
+6. In Innovator, click the **Execute** button in the dialog.
+7. After the query result appears, go back to the `InnovatorServerConfig.xml` file in your editor.
+8. Set the `debug_log_flag` operating parameter value to "false".
+    * This is an important step. If you leave server debug logging enabled, you can accumulate a lot of log files in your code tree.
+9. Save the `InnovatorServerConfig.xml` file.
+10. Navigate to `Innovator\Server\logs\` to find the generated log file with the request AML.
+    * Note: You may see several log files generated depending on what else your server is doing while the logging is enabled.
+    * You can find the Query Definition-specific log by searching for "qry_QueryDefinition".
+
 ## History
 
 Release | Notes
