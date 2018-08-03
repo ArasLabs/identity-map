@@ -124,6 +124,15 @@ require([
         var newNode = queryDef.dom.createElement("offset_fetch_xml");
         newNode.appendChild(cdata);
         
+        // if a search value has been entered, pass as a parameter
+        if (search !== undefined) {
+            search = search.replace("*", "%");
+            if (search.trim() === "")
+                search = "%";
+            var paramItem = queryDef.dom.selectSingleNode("//Item[@type='qry_QueryParameter']/value");
+            paramItem.textContent = search;
+        }
+        
         // execute query
         queryDef.setAction("qry_ExecuteQueryDefinition");
         queryDef.setAttribute("levels","0");
