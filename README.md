@@ -23,6 +23,9 @@ The Query Builder includes an action called "Execute Query". This action provide
 
 When the user clicks the "Execute" button, the Query Definition is executed using the options provided by the user and a result dialog provides the XML result of the query.
 
+#### Testing Query Parameters
+If your Query Definition has parameters defined, you can set specific parameter values when testing your query execution. Just select a parameter from the "Parameter" dropdown list and then enter the value you want to use in the "Parameter Value Customization" input field. If you have multiple parameters to set, repeat the process for each parameter before clicking the "Execute" button.
+
 ### How can I see the AML request that is sent to the server?
 You can use server debug logs to see the AML request that is created by the Execute Query action. Here are the basic steps for collecting the logs:
 
