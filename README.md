@@ -44,12 +44,14 @@ You can use server debug logs to see the AML request that is created by the Exec
 
 Release | Notes
 --------|--------
+[v1.0.1](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.1) | Added background information about Query Definitions to the README file.
 [v1.0.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.0) | First release.
 
 #### Supported Aras Versions
 
 Project | Aras
 --------|------
+[v1.0.1](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.1) | 11.0 SP12, 11.0 SP11
 [v1.0.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.0) | 11.0 SP12, 11.0 SP11
 
 > Warning: This package is not backwards-compatible with Innovator 11.0 SP10. 
