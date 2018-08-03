@@ -68,7 +68,7 @@ Project | Aras
 
 ### Pre-requisites
 
-1. Aras Innovator installed (version 11.0 SP12)
+1. Aras Innovator installed
 2. Aras Package Import Utility
 3. aras.labs.IdentityMap package
 4. Code Tree overlay
