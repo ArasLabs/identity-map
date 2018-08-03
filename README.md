@@ -103,8 +103,11 @@ You are now ready to login to Aras and check out the identity map.
 
 1. Login to Aras Innovator as admin.
 2. Navigate to **Dashboards > Identity Map** in the TOC.
+3. To filter the diagram for a particular identity or group of identities, you can enter criteria in the input field and click the **Search** button. 
+    * Note: This search only filters on the name of top-level identities. It does not filter on other fields or execute a "where used" search to find the group identities that a specific identity belongs to. 
+4. To clear filtered results and return to the default view, clear the search box and click the search button.
 
-The main grid area will display a bubble chart representing the identity membership in the database. Click on group bubbles to see the labels of the member bubbles.
+The main grid area will display a bubble chart representing the identity membership in the database. Click on group bubbles to see the labels of the member bubbles. 
 
 ## Contributing
 
