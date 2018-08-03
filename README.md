@@ -55,7 +55,7 @@ Release | Notes
 
 Project | Aras
 --------|------
-[v1.1.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.1.0) | 11.0 SP12, 11.0 SP11
+[v1.1.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.1.0) | 11 SP14, 11.0 SP12, 11.0 SP11
 [v1.0.1](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.1) | 11.0 SP12, 11.0 SP11
 [v1.0.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.0) | 11.0 SP12, 11.0 SP11
 
