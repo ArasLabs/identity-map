@@ -21,7 +21,7 @@
       <font_weight>bold</font_weight>
       <html_code><![CDATA[<style>
 #curr-label {
-font-size: 60px;
+font-size: 30px;
 color: #3D445E;
 background-color: rgba(78,180,176,0.6);
 text-align: right;
@@ -43,8 +43,8 @@ width:800px;*/
       <sort_order>384</sort_order>
       <source_id keyed_name="67CEC985C14042EA9D3843EBC1737866" type="Body">67CEC985C14042EA9D3843EBC1737866</source_id>
       <tab_stop>1</tab_stop>
-      <x>1114</x>
-      <y>0</y>
+      <x>0</x>
+      <y>-20</y>
       <name>html1</name>
      </Item>
      <Item type="Field" id="0592AAE568CF488A87BCFF4F4E224666" action="add">
@@ -83,7 +83,7 @@ width:800px;*/
 }
 
 </style>
-<svg width="1650" height="825"></svg>
+<svg width="1850" height="785" style="background-color: #4eb4b0; border-top: solid 1px #3D445E;"></svg>
 <script src="../javascript/d3.js"></script>]]></html_code>
       <is_disabled>0</is_disabled>
       <is_visible>1</is_visible>
@@ -93,7 +93,7 @@ width:800px;*/
       <source_id keyed_name="67CEC985C14042EA9D3843EBC1737866" type="Body">67CEC985C14042EA9D3843EBC1737866</source_id>
       <tab_stop>1</tab_stop>
       <x>0</x>
-      <y>0</y>
+      <y>45</y>
       <name>map_field</name>
      </Item>
     </Relationships>
