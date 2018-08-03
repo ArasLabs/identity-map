@@ -29,7 +29,7 @@ require([
         .size([diameter - margin, diameter - margin])
         .padding(2);
         
-    var root = json_data;
+    var root = getData("%");
     
     initDiagram();
     
@@ -43,13 +43,13 @@ require([
             .sort(function(a, b) { return b.value - a.value; });
     
       var focus = root,
-          nodes = pack(root).descendants(),
-          view;
-    
-      var circle = g.selectAll("circle")
-        .data(nodes)
-        .enter().append("circle")
-          .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
+            nodes = pack(root).descendants(),
+            view;
+        
+        circle = g.selectAll("circle")
+            .data(nodes)
+            .enter().append("circle")
+                .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
           .attr("name", function(d) { return d.name; })
                 .style("fill", function(d) { return d.children ? color(d.depth) : null; })
                 .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
@@ -71,10 +71,11 @@ require([
         zoomTo([root.x, root.y, root.r * 2 + margin]);
     }
     
+    // functions
     function zoom(d) {
         var focus0 = focus; focus = d;
         
-        console.log(d);
+        // console.log(d);
         
         var currLabel = document.getElementById("curr-label");
         currLabel.innerHTML = d.data.name;
@@ -97,7 +98,60 @@ require([
         var k = diameter / v[2]; view = v;
         node.attr("transform", function(d) { return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")"; });
         circle.attr("r", function(d) { return d.r * k; });
-      }
+    }
+    
+    function getData(search)
+    {
+        var inn = aras.newIOMInnovator();
+        var qry_id = "B0BDDF2601D84F9BB183D8BD401B6012";
+        
+        // get query definition with relationships
+        var queryDef = inn.newItem("qry_QueryDefinition","get");
+        queryDef.setID(qry_id);
+        queryDef.setAttribute("levels","2");
+        queryDef = queryDef.apply();
+        
+        // get top-level query item (context item)                  
+        var offset = "1";
+        var ftch = "1";
+        var offset_fetch = "<configuration><option><offset>" + offset + 
+                            "</offset><fetch>" + ftch + 
+                            "</fetch></option></configuration>";
+            
+        // add CDATA element to query                    
+        var rootItem = queryDef.dom.selectSingleNode("//Item[@type='qry_QueryDefinition']/Relationships/Item[1]");
+        var cdata = queryDef.dom.createCDATASection(offset_fetch);
+        var newNode = queryDef.dom.createElement("offset_fetch_xml");
+        newNode.appendChild(cdata);
+        
+        // execute query
+        queryDef.setAction("qry_ExecuteQueryDefinition");
+        queryDef.setAttribute("levels","0");
+        var res = queryDef.apply();
+        
+        var json_data = {
+            name: "All",
+            id: "top",
+            children: []
+        };
+        
+        // parse results as D3 JSON
+        for (var i=0; i < res.getItemCount(); i++)
+        {
+            var curr = res.getItemByIndex(i);
+            
+            var curr_name = curr.getProperty("name","no");
+            var id = curr.getProperty("id","no");
+            var is_alias = curr.getProperty("is_alias","1");
+            var rels = curr.getItemsByXPath("Relationships/Item/Relationships/Item");
+            
+            var thisItem = Identity(curr_name, id, is_alias, rels);
+            
+            json_data.children.push(thisItem);
+        }
+        
+        return json_data;
+    }
 });
 
 
