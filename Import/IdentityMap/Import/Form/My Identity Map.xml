@@ -96,6 +96,46 @@ width:800px;*/
       <y>45</y>
       <name>map_field</name>
      </Item>
+     <Item type="Field" id="12F25221D01341B9B3CDD5E6965A2A5F" action="add">
+      <border_width>0</border_width>
+      <display_length>150</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="67CEC985C14042EA9D3843EBC1737866" type="Body">67CEC985C14042EA9D3843EBC1737866</source_id>
+      <tab_stop>1</tab_stop>
+      <x>861</x>
+      <y>15</y>
+      <name>my_search</name>
+     </Item>
+     <Item type="Field" id="7FED5E362C944FFBA106297228AB70D3" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>button</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Search</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="67CEC985C14042EA9D3843EBC1737866" type="Body">67CEC985C14042EA9D3843EBC1737866</source_id>
+      <tab_stop>1</tab_stop>
+      <x>1023</x>
+      <y>11</y>
+      <name>search_btn</name>
+     </Item>
     </Relationships>
    </Item>
    <Item type="Form Event" id="675393F6DBBD4B419D955BA0DE9DD16C" action="add">
