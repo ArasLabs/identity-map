@@ -1,56 +1,8 @@
 ﻿<AML>
  <Item type="Method" id="638836A04C0D4D5D95069CCCE6104FCD" action="add">
+  <comments />
   <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
-  <method_code><![CDATA[var inn = aras.newIOMInnovator();
-var qry_id = "B0BDDF2601D84F9BB183D8BD401B6012";
-
-// get query definition with relationships
-var queryDef = inn.newItem("qry_QueryDefinition","get");
-queryDef.setID(qry_id);
-queryDef.setAttribute("levels","2");
-queryDef = queryDef.apply();
-
-// get top-level query item (context item)                  
-var offset = "1";
-var ftch = "1";
-var offset_fetch = "<configuration><option><offset>" + offset + 
-                    "</offset><fetch>" + ftch + 
-                    "</fetch></option></configuration>";
-    
-// add CDATA element to query                    
-var rootItem = queryDef.dom.selectSingleNode("//Item[@type='qry_QueryDefinition']/Relationships/Item[1]");
-var cdata = queryDef.dom.createCDATASection(offset_fetch);
-var newNode = queryDef.dom.createElement("offset_fetch_xml");
-newNode.appendChild(cdata);
-
-// execute query
-queryDef.setAction("qry_ExecuteQueryDefinition");
-queryDef.setAttribute("levels","0");
-var res = queryDef.apply();
-
-var json_data = {
-    name: "All",
-    id: "top",
-    children: []
-};
-
-// parse results as D3 JSON
-for (var i=0; i < res.getItemCount(); i++)
-{
-    var curr = res.getItemByIndex(i);
-    
-    var curr_name = curr.getProperty("name","no");
-    var id = curr.getProperty("id","no");
-    var is_alias = curr.getProperty("is_alias","1");
-    var rels = curr.getItemsByXPath("Relationships/Item/Relationships/Item");
-    
-    var thisItem = Identity(curr_name, id, is_alias, rels);
-    
-    json_data.children.push(thisItem);
-}
-
-// display diagram
-
+  <method_code><![CDATA[// display diagram
 require([
     "../javascript/d3/d3.js"
 ], function(
@@ -58,28 +10,37 @@ require([
 ) {
     console.log("d3: " + d3);
 
+    // setup objects for diagram
     var svg = d3.select("svg"),
         margin = 20,
         diameter = +svg.attr("height"),
-        g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+        g,
+        node,
+        circle,
+        text,
+        search_val = "%";
     
     var color = d3.scaleLinear()
         .domain([-1, 5])
-        //.range(["hsl(152,80%,80%)", "hsl(228,30%,40%)"])
         .range(["#4EB4B0", "#3D445E"])
         .interpolate(d3.interpolateHcl);
     
     var pack = d3.pack()
         .size([diameter - margin, diameter - margin])
         .padding(2);
-    
+        
     var root = json_data;
     
-      //if (error) throw error;
+    initDiagram();
     
-      root = d3.hierarchy(root)
-          .sum(function(d) { return d.size; })
-          .sort(function(a, b) { return b.value - a.value; });
+    function initDiagram()
+    {
+        g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+        
+        // setup data
+        root = d3.hierarchy(root)
+            .sum(function(d) { return d.size; })
+            .sort(function(a, b) { return b.value - a.value; });
     
       var focus = root,
           nodes = pack(root).descendants(),
@@ -90,26 +51,27 @@ require([
         .enter().append("circle")
           .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
           .attr("name", function(d) { return d.name; })
-          .style("fill", function(d) { return d.children ? color(d.depth) : null; })
-          .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
-    
-      var text = g.selectAll("text")
-        .data(nodes)
-        .enter().append("text")
-          .attr("class", "label")
+                .style("fill", function(d) { return d.children ? color(d.depth) : null; })
+                .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
+        
+        text = g.selectAll("text")
+            .data(nodes)
+            .enter().append("text")
+                .attr("class", "label")
           .style("fill-opacity", function(d) { return d.parent === root ? 1 : 0; })
-          .style("display", function(d) { return d.parent === root ? "inline" : "none"; })
-          .text(function(d) { return d.data.name; });
+                .style("display", function(d) { return d.parent === root ? "inline" : "none"; })
+                .text(function(d) { return d.data.name; });
+        
+        node = g.selectAll("circle,text");
+        
+        svg
+            .style("background", color(-1))
+            .on("click", function() { zoom(root); });
+        
+        zoomTo([root.x, root.y, root.r * 2 + margin]);
+    }
     
-      var node = g.selectAll("circle,text");
-    
-      svg
-          .style("background", color(-1))
-          .on("click", function() { zoom(root); });
-    
-      zoomTo([root.x, root.y, root.r * 2 + margin]);
-    
-      function zoom(d) {
+    function zoom(d) {
         var focus0 = focus; focus = d;
         
         console.log(d);
