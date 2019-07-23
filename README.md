@@ -47,6 +47,7 @@ You can use server debug logs to see the AML request that is created by the Exec
 
 Release | Notes
 --------|--------
+[v1.2.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.2.0) | Confirmed project supports Aras 11 SP15. No new features added.
 [v1.1.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.1.0) | Updates the My Identity Map form with a search field to search top-level identities. This use case demonstrates how to use a query parameter when executing a Query Definition programmatically. 
 [v1.0.1](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.1) | Adds background information about Query Definitions to the README file.
 [v1.0.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.0) | First release.
@@ -55,7 +56,8 @@ Release | Notes
 
 Project | Aras
 --------|------
-[v1.1.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.1.0) | 11 SP14, 11.0 SP12, 11.0 SP11
+[v1.2.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.2.0) | 11.0 SP15, 11.0 SP14, 11.0 SP12, 11.0 SP11
+[v1.1.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.1.0) | 11.0 SP14, 11.0 SP12, 11.0 SP11
 [v1.0.1](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.1) | 11.0 SP12, 11.0 SP11
 [v1.0.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.0) | 11.0 SP12, 11.0 SP11
 
