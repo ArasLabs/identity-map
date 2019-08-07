@@ -5,7 +5,7 @@ This project demonstrates how to execute a Query Definition programmatically and
 ## About Query Definitions
 
 ### What is a Query Definition?
-A Query Definition is a reusable query structure that is defined using the Query Builder GUI. Introduced in Aras 11 SP10, Query Definitions are used for populating certain Aras views, like Tree Grid View. Query definitions can be used to query structures below the context item, structures above the context item, and recursive structures. This project includes a demonstration of a recursive Query Definition (retireves identities that are members of identities).
+A Query Definition is a reusable query structure that is defined using the Query Builder GUI. Introduced in Aras 11 SP10, Query Definitions are used for populating certain Aras views, like Tree Grid View. Query definitions can be used to query structures below the context item, structures above the context item, and recursive structures. This project includes a demonstration of a recursive Query Definition (retrieves identities that are members of identities).
 
 ### What does Query Definition output look like?
 When a Query Definition is executed, the results are returned in an XML format that looks a bit like your typical AML data structure, but it has some important differences to consider:
@@ -19,7 +19,7 @@ When a Query Definition is executed, the results are returned in an XML format t
 ### How can I test the XML result of my Query Definition?
 The Query Builder includes an action called "Execute Query". This action provides an options dialog where the user can enter a max result, conditions, and parameters:
 
-![Test Query](Screenshots/test-query.png)
+![Test Query](Screenshots/12test-query.png)
 
 When the user clicks the "Execute" button, the Query Definition is executed using the options provided by the user and a result dialog provides the XML result of the query.
 
@@ -47,6 +47,7 @@ You can use server debug logs to see the AML request that is created by the Exec
 
 Release | Notes
 --------|--------
+[v1.2.1](https://github.com/ArasLabs/identity-map/releases/tag/v1.2.1) | Verified on Aras v12; Updated Screenshot 
 [v1.2.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.2.0) | Confirmed project supports Aras 11 SP15. No new features added.
 [v1.1.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.1.0) | Updates the My Identity Map form with a search field to search top-level identities. This use case demonstrates how to use a query parameter when executing a Query Definition programmatically. 
 [v1.0.1](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.1) | Adds background information about Query Definitions to the README file.
@@ -56,10 +57,11 @@ Release | Notes
 
 Project | Aras
 --------|------
-[v1.2.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.2.0) | 11.0 SP15, 11.0 SP14, 11.0 SP12, 11.0 SP11
-[v1.1.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.1.0) | 11.0 SP14, 11.0 SP12, 11.0 SP11
-[v1.0.1](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.1) | 11.0 SP12, 11.0 SP11
-[v1.0.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.0) | 11.0 SP12, 11.0 SP11
+[v1.2.1](https://github.com/ArasLabs/identity-map/releases/tag/v1.2.1) | 11.0 SP11+, 12.0 
+[v1.2.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.2.0) | 11.0 SP11+ 
+[v1.1.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.1.0) | 11.0 SP11 – SP14 
+[v1.0.1](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.1) | 11.0 SP11, SP12 
+[v1.0.0](https://github.com/ArasLabs/identity-map/releases/tag/v1.0.0) | 11.0 SP11, SP12 
 
 > Warning: This package is not backwards-compatible with Innovator 11.0 SP10. 
 
@@ -101,11 +103,11 @@ You are now ready to login to Aras and check out the identity map.
 
 ## Usage
 
-![screenshot](Screenshots/screenshot.gif)
+![screenshot](Screenshots/12screenshot.gif)
 
 1. Login to Aras Innovator as admin.
 2. Navigate to **Dashboards > Identity Map** in the TOC.
-3. To filter the diagram for a particular identity or group of identities, you can enter criteria in the input field and click the **Search** button. 
+3. To filter the diagram for a particular identity or group of identities, you can enter criteria in the input field and click the **Search** button (wildcards are allowed). 
     * Note: This search only filters on the name of top-level identities. It does not filter on other fields or execute a "where used" search to find the group identities that a specific identity belongs to. 
 4. To clear filtered results and return to the default view, clear the search box and click the search button.
 
